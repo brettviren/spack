@@ -25,7 +25,7 @@
 from spack.util import argparse
 import spack.cmd
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 import spack
 import spack.url as url

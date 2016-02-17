@@ -27,8 +27,8 @@ import re
 import shutil
 
 from spack.util import argparse
-import llnl.util.tty as tty
-from llnl.util.filesystem import join_path, mkdirp
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import join_path, mkdirp
 
 import spack.spec
 import spack.config

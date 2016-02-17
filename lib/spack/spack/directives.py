@@ -53,8 +53,8 @@ import inspect
 import os.path
 import functools
 
-from llnl.util.lang import *
-from llnl.util.filesystem import join_path
+from spack.llnl.util.lang import *
+from spack.llnl.util.filesystem import join_path
 
 import spack
 import spack.spec

@@ -28,8 +28,8 @@ import hashlib
 
 from contextlib import contextmanager
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
 
 import spack.util.crypto
 from spack.stage import Stage, FailedDownloadError

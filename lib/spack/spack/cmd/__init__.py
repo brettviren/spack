@@ -26,8 +26,8 @@ import os
 import re
 import sys
 
-import llnl.util.tty as tty
-from llnl.util.lang import attr_setdefault
+import spack.llnl.util.tty as tty
+from spack.llnl.util.lang import attr_setdefault
 
 import spack
 import spack.spec

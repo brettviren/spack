@@ -32,7 +32,7 @@ import sys
 import shutil
 import multiprocessing
 import platform
-from llnl.util.filesystem import *
+from spack.llnl.util.filesystem import *
 
 import spack
 import spack.compilers as compilers

@@ -26,8 +26,8 @@ import os
 import sys
 import tempfile
 import getpass
-from llnl.util.filesystem import *
-import llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
+import spack.llnl.util.tty as tty
 
 # This lives in $prefix/lib/spack/spack/__file__
 spack_root = ancestor(__file__, 4)
@@ -163,9 +163,9 @@ from spack.package import Package, ExtensionConflictError
 from spack.version import Version, ver
 from spack.multimethod import when
 
-import llnl.util.filesystem
-from llnl.util.filesystem import *
-__all__ += llnl.util.filesystem.__all__
+import spack.llnl.util.filesystem
+from spack.llnl.util.filesystem import *
+__all__ += spack.llnl.util.filesystem.__all__
 
 import spack.directives
 from spack.directives import *

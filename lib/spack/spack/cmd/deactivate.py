@@ -23,7 +23,7 @@
 # Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
 from spack.util import argparse
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 import spack
 import spack.cmd

@@ -46,9 +46,9 @@ import socket
 import yaml
 from yaml.error import MarkedYAMLError, YAMLError
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import *
-from llnl.util.lock import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
+from spack.llnl.util.lock import *
 
 import spack.spec
 from spack.version import Version

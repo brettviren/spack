@@ -25,8 +25,8 @@
 import re
 import cgi
 from StringIO import StringIO
-import llnl.util.tty as tty
-from llnl.util.tty.colify import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.colify import *
 import spack
 
 description = "Print a list of all packages in reStructuredText."

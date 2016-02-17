@@ -30,7 +30,7 @@ import re
 import subprocess
 import inspect
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 import spack
 import spack.error
 

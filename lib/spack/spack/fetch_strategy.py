@@ -45,8 +45,8 @@ import sys
 import re
 import shutil
 from functools import wraps
-import llnl.util.tty as tty
-from llnl.util.filesystem import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
 import spack
 import spack.error
 import spack.util.crypto as crypto

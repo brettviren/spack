@@ -30,15 +30,15 @@ import tempfile
 import shutil
 import multiprocessing
 
-from llnl.util.lock import *
-from llnl.util.filesystem import join_path
+from spack.llnl.util.lock import *
+from spack.llnl.util.filesystem import join_path
 
 import spack
 from spack.database import Database
 from spack.directory_layout import YamlDirectoryLayout
 from spack.test.mock_packages_test import *
 
-from llnl.util.tty.colify import colify
+from spack.llnl.util.tty.colify import colify
 
 def _print_ref_counts():
     """Print out all ref counts for the graph used here, for debugging"""

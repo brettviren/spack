@@ -24,7 +24,7 @@
 ##############################################################################
 import unittest
 
-from llnl.util.filesystem import join_path
+from spack.llnl.util.filesystem import join_path
 
 import spack
 from spack.repository import Repo

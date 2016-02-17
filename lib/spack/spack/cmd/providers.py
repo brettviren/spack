@@ -25,7 +25,7 @@
 import os
 from spack.util import argparse
 
-from llnl.util.tty.colify import colify
+from spack.llnl.util.tty.colify import colify
 
 import spack
 import spack.cmd

@@ -127,8 +127,8 @@ import yaml
 from yaml.error import MarkedYAMLError
 from spack.util import OrderedDict
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import mkdirp
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import mkdirp
 
 import spack
 from spack.error import SpackError

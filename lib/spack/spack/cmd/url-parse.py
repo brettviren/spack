@@ -24,7 +24,7 @@
 ##############################################################################
 import sys
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 import spack
 import spack.url

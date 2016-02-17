@@ -28,10 +28,10 @@ import itertools
 from spack.util import argparse
 from StringIO import StringIO
 
-import llnl.util.tty as tty
-from llnl.util.tty.colify import *
-from llnl.util.tty.color import *
-from llnl.util.lang import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.colify import *
+from spack.llnl.util.tty.color import *
+from spack.llnl.util.lang import *
 
 import spack
 import spack.spec

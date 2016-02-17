@@ -23,7 +23,7 @@
 # Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
 import textwrap
-from llnl.util.tty.colify import *
+from spack.llnl.util.tty.colify import *
 import spack
 import spack.fetch_strategy as fs
 

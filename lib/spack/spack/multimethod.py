@@ -47,7 +47,7 @@ import sys
 import functools
 import collections
 
-from llnl.util.lang import *
+from spack.llnl.util.lang import *
 
 import spack.architecture
 import spack.error

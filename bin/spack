@@ -73,8 +73,8 @@ except OSError:
 
 # clean up the scope and start using spack package instead.
 del SPACK_FILE, SPACK_PREFIX, SPACK_LIB_PATH
-import llnl.util.tty as tty
-from llnl.util.tty.color import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.color import *
 import spack
 from spack.error import SpackError
 from spack.util import argparse

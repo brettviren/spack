@@ -27,9 +27,9 @@ import os
 import shutil
 from spack.util import argparse
 
-import llnl.util.tty as tty
-from llnl.util.lang import partition_list
-from llnl.util.filesystem import mkdirp
+import spack.llnl.util.tty as tty
+from spack.llnl.util.lang import partition_list
+from spack.llnl.util.filesystem import mkdirp
 
 import spack.cmd
 from spack.modules import module_types

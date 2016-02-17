@@ -25,8 +25,8 @@
 import os
 import string
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import mkdirp, join_path
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import mkdirp, join_path
 
 import spack
 import spack.cmd

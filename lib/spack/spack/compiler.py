@@ -27,9 +27,9 @@ import re
 import itertools
 from datetime import datetime
 
-import llnl.util.tty as tty
-from llnl.util.lang import memoized
-from llnl.util.filesystem import join_path
+import spack.llnl.util.tty as tty
+from spack.llnl.util.lang import memoized
+from spack.llnl.util.filesystem import join_path
 
 import spack.error
 import spack.spec

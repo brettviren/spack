@@ -30,7 +30,7 @@ import tempfile
 import shutil
 import os
 
-from llnl.util.filesystem import *
+from spack.llnl.util.filesystem import *
 
 import spack
 from spack.spec import Spec

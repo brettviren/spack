@@ -46,11 +46,11 @@ from urlparse import urlparse, urljoin
 import textwrap
 from StringIO import StringIO
 
-import llnl.util.tty as tty
-from llnl.util.tty.log import log_output
-from llnl.util.link_tree import LinkTree
-from llnl.util.filesystem import *
-from llnl.util.lang import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.log import log_output
+from spack.llnl.util.link_tree import LinkTree
+from spack.llnl.util.filesystem import *
+from spack.llnl.util.lang import *
 
 import spack
 import spack.error
@@ -1236,7 +1236,7 @@ def validate_package_url(url_string):
 
 def print_pkg(message):
     """Outputs a message with a package icon."""
-    from llnl.util.tty.color import cwrite
+    from spack.llnl.util.tty.color import cwrite
     cwrite('@*g{[+]} ')
     print message
 

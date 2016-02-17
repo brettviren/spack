@@ -31,8 +31,8 @@ import tempfile
 import shutil
 from multiprocessing import Process
 
-from llnl.util.lock import *
-from llnl.util.filesystem import join_path, touch
+from spack.llnl.util.lock import *
+from spack.llnl.util.filesystem import join_path, touch
 
 from spack.util.multiproc import Barrier
 

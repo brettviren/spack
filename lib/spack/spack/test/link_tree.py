@@ -27,8 +27,8 @@ import unittest
 import shutil
 import tempfile
 
-from llnl.util.filesystem import *
-from llnl.util.link_tree import LinkTree
+from spack.llnl.util.filesystem import *
+from spack.llnl.util.link_tree import LinkTree
 
 from spack.stage import Stage
 

@@ -31,8 +31,8 @@ import glob
 import tempfile
 import yaml
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import join_path, mkdirp
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import join_path, mkdirp
 
 from spack.spec import Spec
 from spack.error import SpackError
