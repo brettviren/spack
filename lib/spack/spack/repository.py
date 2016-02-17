@@ -30,7 +30,7 @@ import imp
 import re
 import traceback
 from bisect import bisect_left
-from external import yaml
+import yaml
 
 import spack.llnl.util.tty as tty
 from spack.llnl.util.filesystem import *
