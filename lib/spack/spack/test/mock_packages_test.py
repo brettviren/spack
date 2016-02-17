@@ -27,7 +27,7 @@ import os
 import shutil
 import unittest
 import tempfile
-from ordereddict_backport import OrderedDict
+from spack.util import OrderedDict
 
 from llnl.util.filesystem import mkdirp
 

@@ -22,3 +22,14 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
+
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict_backport import OrderedDict
+
+try:
+    from functools import total_ordering
+except ImportError:
+    from functools_backport import total_ordering
+

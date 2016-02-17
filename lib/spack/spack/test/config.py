@@ -26,7 +26,7 @@ import unittest
 import shutil
 import os
 from tempfile import mkdtemp
-from ordereddict_backport import OrderedDict
+from spack.util import OrderedDict
 import spack
 import spack.config
 from spack.test.mock_packages_test import *
