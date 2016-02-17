@@ -30,8 +30,8 @@ import re
 import select
 import inspect
 
-import llnl.util.tty as tty
-import llnl.util.tty.color as color
+import spack.llnl.util.tty as tty
+import spack.llnl.util.tty.color as color
 
 # Use this to strip escape sequences
 _escape = re.compile(r'\x1b[^m]*m|\x1b\[?1034h')

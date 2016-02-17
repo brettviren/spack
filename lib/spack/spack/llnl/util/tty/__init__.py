@@ -30,7 +30,7 @@ import termios
 import struct
 from StringIO import StringIO
 
-from llnl.util.tty.color import *
+from spack.llnl.util.tty.color import *
 
 _debug   = False
 _verbose = False

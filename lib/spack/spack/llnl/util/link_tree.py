@@ -27,7 +27,7 @@ __all__ = ['LinkTree']
 
 import os
 import shutil
-from llnl.util.filesystem import *
+from spack.llnl.util.filesystem import *
 
 empty_file_name = '.spack-empty'
 
