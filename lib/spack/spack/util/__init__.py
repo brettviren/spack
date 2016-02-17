@@ -33,9 +33,6 @@ try:
 except ImportError:
     from functools_backport import total_ordering
 
-try:
-    import argparse
-except ImportError:
-    import backport_argparse as argparse
+import override_argparse as argparse
 
 
