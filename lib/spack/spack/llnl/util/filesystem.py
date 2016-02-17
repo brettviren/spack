@@ -37,7 +37,7 @@ import getpass
 from contextlib import contextmanager, closing
 from tempfile import NamedTemporaryFile
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 from spack.util.compression import ALLOWED_ARCHIVE_TYPES
 
 def filter_file(regex, repl, *filenames, **kwargs):

@@ -32,8 +32,8 @@ import termios
 import struct
 from StringIO import StringIO
 
-from llnl.util.tty import terminal_size
-from llnl.util.tty.color import clen, cextra
+from spack.llnl.util.tty import terminal_size
+from spack.llnl.util.tty.color import clen, cextra
 
 class ColumnConfig:
     def __init__(self, cols):
