@@ -108,7 +108,7 @@ import re as _re
 import sys as _sys
 import textwrap as _textwrap
 
-from llnl.util.tty.colify import colified
+from spack.llnl.util.tty.colify import colified
 
 from gettext import gettext as _
 

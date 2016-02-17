@@ -31,7 +31,7 @@ import os
 import getpass
 from contextlib import *
 
-from llnl.util.filesystem import *
+from spack.llnl.util.filesystem import *
 
 import spack
 from spack.stage import Stage

@@ -25,7 +25,7 @@
 import os
 import unittest
 
-from llnl.util.filesystem import *
+from spack.llnl.util.filesystem import *
 
 import spack
 from spack.version import ver

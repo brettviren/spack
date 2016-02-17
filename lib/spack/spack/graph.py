@@ -65,8 +65,8 @@ __all__ = ['topological_sort', 'graph_ascii', 'AsciiGraph', 'graph_dot']
 
 from heapq import *
 
-from llnl.util.lang import *
-from llnl.util.tty.color import *
+from spack.llnl.util.lang import *
+from spack.llnl.util.tty.color import *
 
 import spack
 from spack.spec import Spec
@@ -139,7 +139,7 @@ class AsciiGraph(object):
         self.indent = 0
 
         # These are colors in the order they'll be used for edges.
-        # See llnl.util.tty.color for details on color characters.
+        # See spack.llnl.util.tty.color for details on color characters.
         self.colors = 'rgbmcyRGBMCY'
 
         # Internal vars are used in the graph() function and are

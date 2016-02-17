@@ -41,8 +41,8 @@
    features.
 """
 import imp
-from llnl.util.lang import memoized, list_modules
-from llnl.util.filesystem import join_path
+from spack.llnl.util.lang import memoized, list_modules
+from spack.llnl.util.filesystem import join_path
 import spack
 
 @memoized

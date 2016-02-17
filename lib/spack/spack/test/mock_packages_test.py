@@ -29,7 +29,7 @@ import unittest
 import tempfile
 from spack.util import OrderedDict
 
-from llnl.util.filesystem import mkdirp
+from spack.llnl.util.filesystem import mkdirp
 
 import spack
 import spack.config

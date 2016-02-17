@@ -24,7 +24,7 @@
 ##############################################################################
 import os
 import sys
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 import spack
 
 class SpackError(Exception):

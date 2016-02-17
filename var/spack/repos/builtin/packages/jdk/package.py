@@ -7,7 +7,7 @@ from subprocess import call
 
 import spack
 from spack import *
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 class Jdk(Package):
     """The Java Development Kit (JDK) released by Oracle Corporation

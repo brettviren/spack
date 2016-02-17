@@ -26,7 +26,7 @@ import os
 import re
 import platform
 
-from llnl.util.lang import memoized
+from spack.llnl.util.lang import memoized
 
 import spack
 import spack.error as serr

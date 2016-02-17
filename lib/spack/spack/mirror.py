@@ -32,8 +32,8 @@ to download packages directly from a mirror (e.g., on an intranet).
 """
 import sys
 import os
-import llnl.util.tty as tty
-from llnl.util.filesystem import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
 
 import spack
 import spack.error

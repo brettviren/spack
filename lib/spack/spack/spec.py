@@ -99,9 +99,9 @@ from operator import attrgetter
 import yaml
 from yaml.error import MarkedYAMLError
 
-import llnl.util.tty as tty
-from llnl.util.lang import *
-from llnl.util.tty.color import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.lang import *
+from spack.llnl.util.tty.color import *
 
 import spack
 import spack.parse

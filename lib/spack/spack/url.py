@@ -49,8 +49,8 @@ import re
 from StringIO import StringIO
 from urlparse import urlsplit, urlunsplit
 
-import llnl.util.tty as tty
-from llnl.util.tty.color import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.color import *
 
 import spack.error
 import spack.util.compression as comp

@@ -32,8 +32,8 @@ import traceback
 from bisect import bisect_left
 from external import yaml
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
 
 import spack.error
 import spack.config

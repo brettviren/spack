@@ -25,10 +25,10 @@
 import sys
 from spack.util import argparse
 
-import llnl.util.tty as tty
-from llnl.util.tty.color import colorize
-from llnl.util.tty.colify import colify
-from llnl.util.lang import index_by
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.color import colorize
+from spack.llnl.util.tty.colify import colify
+from spack.llnl.util.lang import index_by
 
 import spack.compilers
 import spack.spec

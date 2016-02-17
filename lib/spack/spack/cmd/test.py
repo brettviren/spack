@@ -25,9 +25,9 @@
 import os
 from pprint import pprint
 
-from llnl.util.filesystem import join_path, mkdirp
-from llnl.util.tty.colify import colify
-from llnl.util.lang import list_modules
+from spack.llnl.util.filesystem import join_path, mkdirp
+from spack.llnl.util.tty.colify import colify
+from spack.llnl.util.lang import list_modules
 
 import spack
 import spack.test

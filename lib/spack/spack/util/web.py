@@ -31,7 +31,7 @@ import urlparse
 from multiprocessing import Pool
 from HTMLParser import HTMLParser, HTMLParseError
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 import spack
 import spack.error

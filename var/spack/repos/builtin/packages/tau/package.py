@@ -28,7 +28,7 @@ from spack import *
 import os
 import os.path
 
-from llnl.util.filesystem import join_path
+from spack.llnl.util.filesystem import join_path
 
 class Tau(Package):
     """

@@ -31,7 +31,7 @@ You can find the dummy packages here::
 import spack
 import spack.package
 
-from llnl.util.lang import list_modules
+from spack.llnl.util.lang import list_modules
 
 from spack.spec import Spec
 from spack.test.mock_packages_test import *

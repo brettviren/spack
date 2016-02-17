@@ -25,7 +25,7 @@
 """
 This file contains utilities to help with installing packages.
 """
-from llnl.util.filesystem import join_path
+from spack.llnl.util.filesystem import join_path
 
 class Prefix(str):
     """This class represents an installation prefix, but provides useful

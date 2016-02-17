@@ -29,8 +29,8 @@ import hashlib
 from pprint import pprint
 from subprocess import CalledProcessError
 
-import llnl.util.tty as tty
-from llnl.util.tty.colify import colify
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.colify import colify
 
 import spack
 import spack.cmd

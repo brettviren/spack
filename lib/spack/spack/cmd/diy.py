@@ -26,7 +26,7 @@ import sys
 import os
 from spack.util import argparse
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 import spack
 import spack.cmd

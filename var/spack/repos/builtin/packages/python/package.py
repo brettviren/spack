@@ -1,7 +1,7 @@
 import os
 import re
 from contextlib import closing
-from llnl.util.lang import match_predicate
+from spack.llnl.util.lang import match_predicate
 from spack.util.environment import *
 
 from spack import *

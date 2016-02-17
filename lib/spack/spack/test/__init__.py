@@ -27,9 +27,9 @@ import unittest
 import nose
 
 from spack.test.tally_plugin import Tally
-from llnl.util.filesystem import join_path
-import llnl.util.tty as tty
-from llnl.util.tty.colify import colify
+from spack.llnl.util.filesystem import join_path
+import spack.llnl.util.tty as tty
+from spack.llnl.util.tty.colify import colify
 
 import spack
 

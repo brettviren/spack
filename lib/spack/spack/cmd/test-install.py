@@ -29,8 +29,8 @@ import re
 import os
 import codecs
 
-import llnl.util.tty as tty
-from llnl.util.filesystem import *
+import spack.llnl.util.tty as tty
+from spack.llnl.util.filesystem import *
 
 import spack
 from spack.build_environment import InstallError

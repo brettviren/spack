@@ -32,7 +32,7 @@ import unittest
 import os
 import re
 
-import llnl.util.tty as tty
+import spack.llnl.util.tty as tty
 
 import pyqver2
 import spack
