@@ -192,7 +192,7 @@ class URLFetchStrategy(FetchStrategy):
                      "The checksum will likely be bad.  If it is, you can use",
                      "'spack clean <package>' to remove the bad archive, then fix",
                      "your internet gateway issue and install again.")
-
+            raise FailedDownloadError(self.url)
         if not self.archive_file:
             raise FailedDownloadError(self.url)
 
