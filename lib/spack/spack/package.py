@@ -907,6 +907,7 @@ class Package(object):
 
 
         def real_work():
+            log_path = join_path(os.getcwd(), 'spack-build.out')
             try:
                 tty.msg("Building %s." % self.name)
 
@@ -925,7 +926,6 @@ class Package(object):
                     self.stage.chdir_to_source()
 
                     # This redirects I/O to a build log (and optionally to the terminal)
-                    log_path = join_path(os.getcwd(), 'spack-build.out')
                     log_file = open(log_path, 'w')
                     with log_output(log_file, verbose, sys.stdout.isatty(), True):
                         self.install(self.spec, self.prefix)
