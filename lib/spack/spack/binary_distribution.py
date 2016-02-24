@@ -3,6 +3,7 @@ __author__ = "Benedikt Hegner (CERN)"
 import llnl.util.tty as tty
 
 import os
+import os.path
 import platform
 import urllib2
 from architecture import get_full_system_from_platform
@@ -93,7 +94,51 @@ def extract_tarball(package):
     local_tarball = package.stage.path+"/"+tarball
     tar("--strip-components=1","-C%s"%package.prefix,"-xf",local_tarball)
 
+def runpath(filename):
+    """
+    Return the RUNPATH embeded in the executable or shared library.
+
+    Return None if filename is a symlink or otherwise not an executable or shared library
+
+    Relies on 'readelf' from binutils.  FIXME: need equiv for Mac
+    """
+    if not os.path.exists(filename):
+        return None
+    if os.path.islink(filename):
+        return None
+    readelf = which("readelf")
+    output = readelf("-d", filename, output=str,fail_on_error=False,error=str)
+    if readelf.returncode != 0:
+        return None
+    for line in output.split('\n'):
+        line = line.strip()
+        chunks = line.split()
+        if not chunks:
+            continue
+        if chunks[1] == '(RUNPATH)':
+            return chunks[4][1:-1].split(':')
+        if chunks[1] == '(RPATH)':
+            return chunks[4][1:-1].split(':')
+    return None
+
+def filetype(filename):
+    """
+    Use file magic to return file type as a mimetype. 
+    """
+    if not os.path.exists(filename):
+        return None
+    magic = which("file")
+    output = magic("-b", "-i", filename, output=str,fail_on_error=False,error=str)
+    if magic.returncode != 0:
+        return non
+    return output.strip()
+        
+
 def relocate(package):
+    """
+    Relocate a package by changing paths as possible.
+    """
+    # fixme: this uses patchelf, needs equivalent for Mac
     # get location of previously installed patchelf
     with open(build_info_file(package.spec),"r") as package_file:
         build_path = package_file.read()
@@ -106,6 +151,9 @@ def relocate(package):
         os.chdir(package.prefix)
         for root, dirs, files in os.walk(package.prefix):
             for file in files:
-                if file.endswith("so") or os.path.split(root)[-1] == 'bin':
-                    fullname = os.path.join(root, file)
+                fullname = os.path.join(root, file)
+                ft = filetype(fullname)
+                if not ft:
+                    continue
+                if 'x-executable' in ft or 'x-sharedlib' in ft:
                     os.system("%s --set-rpath %s %s"%(patchelf_executable,rpath,fullname) )
