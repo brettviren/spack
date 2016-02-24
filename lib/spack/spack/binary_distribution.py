@@ -106,6 +106,6 @@ def relocate(package):
         os.chdir(package.prefix)
         for root, dirs, files in os.walk(package.prefix):
             for file in files:
-                if file.endswith("so"):
+                if file.endswith("so") or os.path.split(root)[-1] == 'bin':
                     fullname = os.path.join(root, file)
                     os.system("%s --set-rpath %s %s"%(patchelf_executable,rpath,fullname) )
