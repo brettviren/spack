@@ -40,17 +40,20 @@
    systems (e.g. modules, dotkit, etc.) or to add other custom
    features.
 """
+import os
 import imp
 from spack.llnl.util.lang import memoized, list_modules
 from spack.llnl.util.filesystem import join_path
+
 import spack
 
 @memoized
 def all_hook_modules():
     modules = []
-    for name in list_modules(spack.hooks_path):
+    my_path = os.path.dirname(__file__)
+    for name in list_modules(my_path):
         mod_name = __name__ + '.' + name
-        path = join_path(spack.hooks_path, name) + ".py"
+        path = join_path(my_path, name) + ".py"
         mod = imp.load_source(mod_name, path)
         modules.append(mod)
 

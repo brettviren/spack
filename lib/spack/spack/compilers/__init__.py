@@ -29,7 +29,6 @@ import imp
 import os
 import platform
 
-from spack.llnl.util.lang import memoized, list_modules
 from spack.llnl.util.filesystem import join_path
 
 import spack
@@ -43,6 +42,7 @@ from spack.compiler import Compiler
 from spack.util.executable import which
 from spack.util.naming import mod_to_class
 from spack.util.environment import get_path
+from spack.util.lang import get_submodule_names
 
 _imported_compilers_module = 'spack.compilers'
 _required_instance_vars = ['cc', 'cxx', 'f77', 'fc']
@@ -217,8 +217,8 @@ def supported_compilers():
        See available_compilers() to get a list of all the available
        versions of supported compilers.
     """
-    return sorted(name for name in list_modules(spack.compilers_path))
 
+    return get_submodule_names(spack.compilers)
 
 @_auto_compiler_spec
 def supported(compiler_spec):
@@ -275,7 +275,8 @@ def class_for_compiler_name(compiler_name):
     """Given a compiler module name, get the corresponding Compiler class."""
     assert(supported(compiler_name))
 
-    file_path = join_path(spack.compilers_path, compiler_name + ".py")
+    my_path = os.path.dirname(__file__)
+    file_path = join_path(my_path, compiler_name + ".py")
     compiler_mod = imp.load_source(_imported_compilers_module, file_path)
     cls = getattr(compiler_mod, mod_to_class(compiler_name))
 

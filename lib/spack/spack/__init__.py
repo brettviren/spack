@@ -32,16 +32,11 @@ import spack.llnl.util.tty as tty
 # This lives in $prefix/lib/spack/spack/__file__
 spack_root = ancestor(__file__, 4)
 
-# The spack script itself
-spack_file = join_path(spack_root, "bin", "spack")
 
 # spack directory hierarchy
 lib_path       = join_path(spack_root, "lib", "spack")
 build_env_path = join_path(lib_path, "env")
 module_path    = join_path(lib_path, "spack")
-compilers_path = join_path(module_path, "compilers")
-test_path      = join_path(module_path, "test")
-hooks_path     = join_path(module_path, "hooks")
 var_path       = join_path(spack_root, "var", "spack")
 stage_path     = join_path(var_path, "stage")
 repos_path     = join_path(var_path, "repos")
@@ -54,8 +49,6 @@ etc_path       = join_path(prefix, "etc")
 
 
 del spack_root
-del spack_file
-
 
 #
 # Set up the default packages database.

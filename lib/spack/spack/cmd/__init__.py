@@ -50,9 +50,6 @@ ignore_files = r'^\.|^__init__.py$|^#'
 SETUP_PARSER = "setup_parser"
 DESCRIPTION  = "description"
 
-command_path = os.path.join(spack.lib_path, "spack", "cmd")
-
-
 def get_cmd_function_name(name):
     return name.replace("-", "_")
 

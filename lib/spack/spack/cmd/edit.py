@@ -30,6 +30,7 @@ from spack.llnl.util.filesystem import mkdirp, join_path
 
 import spack
 import spack.cmd
+import spack.test
 from spack.spec import Spec
 from spack.repository import Repo
 from spack.util.naming import mod_to_class
@@ -93,10 +94,10 @@ def setup_parser(subparser):
     # Various filetypes you can edit directly from the cmd line.
     excl_args.add_argument(
         '-c', '--command', dest='path', action='store_const',
-        const=spack.cmd.command_path, help="Edit the command with the supplied name.")
+        const=spack.cmd.__path__[0], help="Edit the command with the supplied name.")
     excl_args.add_argument(
         '-t', '--test', dest='path', action='store_const',
-        const=spack.test_path, help="Edit the test with the supplied name.")
+        const=spack.test.__path__[0], help="Edit the test with the supplied name.")
     excl_args.add_argument(
         '-m', '--module', dest='path', action='store_const',
         const=spack.module_path, help="Edit the main spack module with the supplied name.")

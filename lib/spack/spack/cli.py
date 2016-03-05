@@ -28,8 +28,8 @@ from spack.llnl.util.tty.color import *
 import spack
 from spack.error import SpackError
 from spack.util import argparse
+from spack.util.lang import get_submodule_names
 import spack.cmd
-import pkgutil
 
 # Command parsing
 parser = argparse.ArgumentParser(
@@ -67,9 +67,7 @@ parser.add_argument('-V', '--version', action='version',
 subparsers = parser.add_subparsers(metavar='SUBCOMMAND', dest="command")
 
 # locate commands as modules under spack.cmd
-for importer, modname, ispkg in pkgutil.iter_modules(spack.cmd.__path__):
-    if ispkg:
-        continue
+for modname in get_submodule_names(spack.cmd):
     module = spack.cmd.get_module(modname)
     subparser = subparsers.add_parser(modname, help=module.description)
     module.setup_parser(subparser)
