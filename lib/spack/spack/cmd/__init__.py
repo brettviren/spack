@@ -52,13 +52,6 @@ DESCRIPTION  = "description"
 
 command_path = os.path.join(spack.lib_path, "spack", "cmd")
 
-commands = []
-for file in os.listdir(command_path):
-    if file.endswith(".py") and not re.search(ignore_files, file):
-        cmd = re.sub(r'.py$', '', file)
-        commands.append(cmd)
-commands.sort()
-
 
 def get_cmd_function_name(name):
     return name.replace("-", "_")

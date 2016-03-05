@@ -31,20 +31,23 @@ Spack was originally 2.7, but enough systems in 2014 are still using
 import unittest
 import os
 import re
+import sys
 
 import spack.llnl.util.tty as tty
 
 import pyqver2
 import spack
-
+from spack.util.executable import which
 spack_max_version = (2,6)
 
 class PythonVersionTest(unittest.TestCase):
 
     def pyfiles(self, *search_paths):
         # first file is the spack script.
-        yield spack.spack_file
-
+        spack_exec = which('spack')
+        if spack_exec:
+            yield spack_exec.exe[0]
+        
         # Iterate through the whole spack source tree.
         for path in search_paths:
             for root, dirnames, filenames in os.walk(path):

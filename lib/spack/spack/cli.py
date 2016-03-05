@@ -29,6 +29,7 @@ import spack
 from spack.error import SpackError
 from spack.util import argparse
 import spack.cmd
+import pkgutil
 
 # Command parsing
 parser = argparse.ArgumentParser(
@@ -65,10 +66,14 @@ parser.add_argument('-V', '--version', action='version',
 # subparser for setup.
 subparsers = parser.add_subparsers(metavar='SUBCOMMAND', dest="command")
 
-for cmd in spack.cmd.commands:
-    module = spack.cmd.get_module(cmd)
-    subparser = subparsers.add_parser(cmd, help=module.description)
+# locate commands as modules under spack.cmd
+for importer, modname, ispkg in pkgutil.iter_modules(spack.cmd.__path__):
+    if ispkg:
+        continue
+    module = spack.cmd.get_module(modname)
+    subparser = subparsers.add_parser(modname, help=module.description)
     module.setup_parser(subparser)
+
 
 # Just print help and exit if run with no arguments at all
 if len(sys.argv) == 1:
