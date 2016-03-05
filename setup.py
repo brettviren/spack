@@ -5,7 +5,7 @@ setup(
     license = 'GPL',
     url = 'https://github.com/LLNL/spack',
     description = 'A flexible package manager designed to support multiple versions, configurations, platforms, and compilers.',
-    author = 'LLNL',
+    author = 'Todd Gamblin',
     author_email = 'spack@googlegroups.com',
     maintainer = 'Brett Viren',
     maintainer_email = 'brett.viren@gmail.com',
@@ -18,7 +18,7 @@ setup(
 
     entry_points = dict(
         console_scripts = [
-            'spack = spack.cli.main',
+            'spack = spack.cli:main',
         ]
     ),
 
