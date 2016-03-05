@@ -101,7 +101,8 @@ class PythonVersionTest(unittest.TestCase):
 
 
     def test_core_module_compatibility(self):
-        self.check_python_versions(*self.pyfiles(spack.lib_path))
+        lib_path = os.path.dirname(spack.__path__[0])
+        self.check_python_versions(*self.pyfiles(lib_path))
 
 
     def test_package_module_compatibility(self):

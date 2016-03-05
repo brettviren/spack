@@ -36,10 +36,13 @@ spack_root = ancestor(__file__, 4)
 # spack directory hierarchy
 lib_path       = join_path(spack_root, "lib", "spack")
 build_env_path = join_path(lib_path, "env")
-module_path    = join_path(lib_path, "spack")
+del lib_path
+
 var_path       = join_path(spack_root, "var", "spack")
 stage_path     = join_path(var_path, "stage")
 repos_path     = join_path(var_path, "repos")
+del var_path
+
 share_path     = join_path(spack_root, "share", "spack")
 
 prefix = spack_root

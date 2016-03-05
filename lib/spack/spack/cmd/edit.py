@@ -100,7 +100,7 @@ def setup_parser(subparser):
         const=spack.test.__path__[0], help="Edit the test with the supplied name.")
     excl_args.add_argument(
         '-m', '--module', dest='path', action='store_const',
-        const=spack.module_path, help="Edit the main spack module with the supplied name.")
+        const=spack.__path__[0], help="Edit the main spack module with the supplied name.")
 
     # Options for editing packages
     excl_args.add_argument(

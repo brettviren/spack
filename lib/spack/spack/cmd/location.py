@@ -66,7 +66,7 @@ def setup_parser(subparser):
 
 def location(parser, args):
     if args.module_dir:
-        print spack.module_path
+        print spack.__path__[0]
 
     elif args.spack_root:
         print spack.prefix
