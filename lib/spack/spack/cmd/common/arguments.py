@@ -7,7 +7,7 @@
 # LLNL-CODE-647188
 #
 # For details, see https://github.com/llnl/spack
-# Please also see the LICENSE file for our notice and the LGPL.
+# Please also see the NOTICE and LICENSE files for our notice and the LGPL.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License (as
@@ -64,7 +64,7 @@ class ConstraintAction(argparse.Action):
 
         # return everything for an empty query.
         if not qspecs:
-            return spack.store.db.query()
+            return spack.store.db.query(**kwargs)
 
         # Return only matching stuff otherwise.
         specs = set()
@@ -74,34 +74,61 @@ class ConstraintAction(argparse.Action):
         return sorted(specs)
 
 
+class CleanOrDirtyAction(argparse.Action):
+    """Sets the dirty flag in the current namespace"""
+
+    def __init__(self, *args, **kwargs):
+        kwargs['default'] = spack.dirty
+        super(CleanOrDirtyAction, self).__init__(*args, **kwargs)
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        if option_string == '--clean':
+            setattr(namespace, self.dest, False)
+        elif option_string == '--dirty':
+            setattr(namespace, self.dest, True)
+        else:
+            msg = 'expected "--dirty" or "--clean" [got {0} instead]'
+            raise argparse.ArgumentError(msg.format(option_string))
+
+
 _arguments['constraint'] = Args(
     'constraint', nargs=argparse.REMAINDER, action=ConstraintAction,
-    help='Constraint to select a subset of installed packages')
+    help='constraint to select a subset of installed packages')
 
 _arguments['module_type'] = Args(
-    '-m', '--module-type', help='Type of module files',
-    default='tcl', choices=spack.modules.module_types)
+    '-m', '--module-type',
+    choices=spack.modules.module_types.keys(),
+    default=list(spack.modules.module_types.keys())[0],
+    help='type of module files [default: %(default)s]')
 
 _arguments['yes_to_all'] = Args(
     '-y', '--yes-to-all', action='store_true', dest='yes_to_all',
-    help='Assume "yes" is the answer to every confirmation request.')
+    help='assume "yes" is the answer to every confirmation request')
 
 _arguments['recurse_dependencies'] = Args(
     '-r', '--dependencies', action='store_true', dest='recurse_dependencies',
-    help='Recursively traverse spec dependencies')
+    help='recursively traverse spec dependencies')
 
 _arguments['clean'] = Args(
-    '--clean', action='store_false', dest='dirty',
-    help='Clean environment before installing package.')
+    '--clean',
+    action=CleanOrDirtyAction,
+    dest='dirty',
+    help='clean environment before installing package',
+    nargs=0
+)
 
 _arguments['dirty'] = Args(
-    '--dirty', action='store_true', dest='dirty',
-    help='Do NOT clean environment before installing.')
+    '--dirty',
+    action=CleanOrDirtyAction,
+    dest='dirty',
+    help='do NOT clean environment before installing',
+    nargs=0
+)
 
 _arguments['long'] = Args(
     '-l', '--long', action='store_true',
-    help='Show dependency hashes as well as versions.')
+    help='show dependency hashes as well as versions')
 
 _arguments['very_long'] = Args(
     '-L', '--very-long', action='store_true',
-    help='Show full dependency hashes as well as versions.')
+    help='show full dependency hashes as well as versions')

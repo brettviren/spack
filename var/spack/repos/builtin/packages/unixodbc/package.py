@@ -7,7 +7,7 @@
 # LLNL-CODE-647188
 #
 # For details, see https://github.com/llnl/spack
-# Please also see the LICENSE file for our notice and the LGPL.
+# Please also see the NOTICE and LICENSE files for our notice and the LGPL.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License (as
@@ -31,6 +31,9 @@ class Unixodbc(AutotoolsPackage):
     SQL Servers and any Data Source with an ODBC Driver."""
 
     homepage = "http://www.unixodbc.org/"
-    url      = "ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz"
+    url      = "http://www.unixodbc.org/unixODBC-2.3.4.tar.gz"
 
     version('2.3.4', 'bd25d261ca1808c947cb687e2034be81')
+
+    depends_on('libiconv')
+    depends_on('libtool')

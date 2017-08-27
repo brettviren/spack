@@ -7,7 +7,7 @@
 # LLNL-CODE-647188
 #
 # For details, see https://github.com/llnl/spack
-# Please also see the LICENSE file for our notice and the LGPL.
+# Please also see the NOTICE and LICENSE files for our notice and the LGPL.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License (as
@@ -28,7 +28,7 @@ import sys
 from spack import *
 
 
-class CBlosc(Package):
+class CBlosc(CMakePackage):
     """Blosc, an extremely fast, multi-threaded, meta-compressor library"""
     homepage = "http://www.blosc.org"
     url      = "https://github.com/Blosc/c-blosc/archive/v1.11.1.tar.gz"
@@ -40,14 +40,23 @@ class CBlosc(Package):
     version('1.8.1',  'd73d5be01359cf271e9386c90dcf5b05')
     version('1.8.0',  '5b92ecb287695ba20cc33d30bf221c4f')
 
-    depends_on("cmake", type='build')
-    depends_on("snappy")
-    depends_on("zlib")
+    variant('avx2', default=True, description='Enable AVX2 support')
 
-    def install(self, spec, prefix):
-        cmake('.', *std_cmake_args)
+    depends_on('cmake@2.8.10:', type='build')
+    depends_on('snappy')
+    depends_on('zlib')
 
-        make()
-        make("install")
+    def cmake_args(self):
+        args = []
+
+        if '+avx2' in self.spec:
+            args.append('-DDEACTIVATE_AVX2=OFF')
+        else:
+            args.append('-DDEACTIVATE_AVX2=ON')
+
+        return args
+
+    @run_after('install')
+    def darwin_fix(self):
         if sys.platform == 'darwin':
-            fix_darwin_install_name(prefix.lib)
+            fix_darwin_install_name(self.prefix.lib)

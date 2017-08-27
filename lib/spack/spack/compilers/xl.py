@@ -7,7 +7,7 @@
 # LLNL-CODE-647188
 #
 # For details, see https://github.com/llnl/spack
-# Please also see the LICENSE file for our notice and the LGPL.
+# Please also see the NOTICE and LICENSE files for our notice and the LGPL.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License (as
@@ -67,13 +67,7 @@ class Xl(Compiler):
         # compilers and allows the use of zero size objects.
         # For Fortran 90 and beyond, it is set by default and has not impact.
         # Its use has no negative side effects.
-        # The -qstrict flag allows the Fortran 90+ compilers to parse the
-        # source files using fixed form rule. As a result, if -qfixed is in
-        # effect, free form files (that are not also fixed form files) will
-        # fail to compile regardless of the compiler invocation command.
-        # Use the -qfree flag in the packages' configuration file to undo the
-        #  -qfixed flag, as the last one wins.
-        return "-qzerosize -qfixed"
+        return "-qzerosize"
 
     @classmethod
     def default_version(cls, comp):
