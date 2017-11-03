@@ -32,6 +32,7 @@ class Xrootd(CMakePackage):
     homepage = "http://xrootd.org"
     url      = "http://xrootd.org/download/v4.6.0/xrootd-4.6.0.tar.gz"
 
+    version('4.7.1', '4006422bcf99e0a19996ace4ebb99175')
     version('4.6.0', '5d60aade2d995b68fe0c46896bc4a5d1')
     version('4.5.0', 'd485df3d4a991e1c35efa4bf9ef663d7')
     version('4.4.1', '72b0842f802ccc94dede4ac5ab2a589e')

@@ -37,7 +37,8 @@ class Root(CMakePackage):
     version('6.09.02', '4188dfeafb72df339a3d688fe92f57ec')
 
     # Production versions
-    version('6.08.06', 'bcf0be2df31a317d25694ad2736df268', preferred=True)
+    version('6.10.08', '48f5044e9588d94fb2d79389e48e1d73', preferred=True)
+    version('6.08.06', 'bcf0be2df31a317d25694ad2736df268')
 
     # Old versions
     version('6.06.08', '6ef0fe9bd9f88f3ce8890e3651142ee4')
@@ -71,7 +72,7 @@ class Root(CMakePackage):
     depends_on('jpeg')
     depends_on('gsl')
     depends_on('python@2.7:')
-    # depends_on('opengl')
+    #depends_on('opengl')
     depends_on('graphviz', when='+graphviz')
     # depends_on('kerberos')
     depends_on('libxml2+python')
@@ -87,7 +88,7 @@ class Root(CMakePackage):
     depends_on('fftw')
     depends_on('cfitsio')
     # depends_on('monalisa')
-    # depends_on('xrootd')
+    depends_on('xrootd')
     # depends_on('gfal')
     # depends_on('dcap')
     # depends_on('ldap')
