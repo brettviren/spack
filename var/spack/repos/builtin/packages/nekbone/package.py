@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -32,12 +32,13 @@ class Nekbone(Package):
        Nek5000 is a high order, incompressible Navier-Stokes solver based on
        the spectral element method."""
 
-    homepage = "https://github.com/ANL-CESAR/"
-    url = "https://github.com/ANL-CESAR/nekbone.git"
+    homepage = "hhttps://github.com/Nek5000/Nekbone"
+    url = "https://github.com/Nek5000/Nekbone/tarball/v17.0"
 
-    tags = ['proxy-app']
+    tags = ['proxy-app', 'ecp-proxy-app']
 
-    version('develop', git='https://github.com/ANL-CESAR/nekbone.git')
+    version('17.0', 'cc339684547614a0725959e41839fec1')
+    version('develop', git='https://github.com/Nek5000/Nekbone.git')
 
     depends_on('mpi')
 

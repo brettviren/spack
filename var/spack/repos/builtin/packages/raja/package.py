@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -29,6 +29,6 @@ class Raja(CMakePackage):
     """RAJA Parallel Framework."""
     homepage = "http://software.llnl.gov/RAJA/"
 
-    version('git', git='https://github.com/LLNL/RAJA.git', branch="master")
+    version('develop', git='https://github.com/LLNL/RAJA.git', branch="master", submodules="True")
 
     depends_on('cmake@3.3:', type='build')

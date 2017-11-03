@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -82,13 +82,13 @@ def get_module_cmd_from_bash(bashopts=''):
     try:
         find_exec = re.search(r'.*`(.*(:? bash | sh ).*)`.*', module_func)
         exec_line = find_exec.group(1)
-    except:
+    except BaseException:
         try:
             # This will fail with nested parentheses. TODO: expand regex.
             find_exec = re.search(r'.*\(([^()]*(:? bash | sh )[^()]*)\).*',
                                   module_func)
             exec_line = find_exec.group(1)
-        except:
+        except BaseException:
             raise ModuleError('get_module_cmd cannot '
                               'determine the module command from bash')
 
@@ -186,6 +186,12 @@ def get_path_from_module(mod):
         L = line.find('-L/')
         if L >= 0:
             return line[L + 2:line.find('/lib')]
+
+    # If it sets the PATH, use it
+    for line in text:
+        if line.find('PATH') >= 0:
+            path = get_argument_from_module_line(line)
+            return path[:path.find('/bin')]
 
     # Unable to find module path
     return None

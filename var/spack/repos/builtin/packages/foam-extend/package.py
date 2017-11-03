@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -52,14 +52,16 @@
 # - Combining +parmgridgen with +float32 probably won't work.
 #
 ##############################################################################
-from spack import *
-from spack.environment import *
-
 import glob
 import re
 import shutil
 import os
-from spack.pkg.builtin.openfoam_com import *
+
+from spack import *
+from spack.pkg.builtin.openfoam_com import OpenfoamArch
+from spack.pkg.builtin.openfoam_com import add_extra_files
+from spack.pkg.builtin.openfoam_com import write_environ
+from spack.pkg.builtin.openfoam_com import rewrite_environ_files
 
 
 class FoamExtend(Package):

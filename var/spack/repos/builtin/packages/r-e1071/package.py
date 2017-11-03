@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -32,6 +32,7 @@ class RE1071(RPackage):
 
     homepage = "https://cran.r-project.org/package=e1071"
     url      = "https://cran.r-project.org/src/contrib/e1071_1.6-7.tar.gz"
+    list_url = "https://cran.rstudio.com/src/contrib/Archive/e1071"
 
     version('1.6-7', 'd109a7e3dd0c905d420e327a9a921f5a')
 

@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -45,7 +45,7 @@ so package authors should use their judgement.
 """
 import functools
 
-from llnl.util.lang import *
+from llnl.util.lang import caller_locals, get_calling_module_name
 
 import spack.architecture
 import spack.error

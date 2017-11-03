@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -32,10 +32,10 @@ import tempfile
 import shutil
 import filecmp
 
-from llnl.util.filesystem import *
+from llnl.util.filesystem import mkdirp
 
 import spack
-from spack.hooks.sbang import *
+from spack.hooks.sbang import shebang_too_long, filter_shebangs_in_directory
 from spack.util.executable import which
 
 

@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -31,7 +31,7 @@ import argparse
 import pytest
 from six import StringIO
 
-from llnl.util.filesystem import *
+from llnl.util.filesystem import working_dir
 from llnl.util.tty.colify import colify
 
 import spack
@@ -96,7 +96,7 @@ def test(parser, args, unknown_args):
         pytest.main(['-h'])
         return
 
-    # pytest.ini lives in the root of the sapck repository.
+    # pytest.ini lives in the root of the spack repository.
     with working_dir(spack.prefix):
         # --list and --long-list print the test output better.
         if args.list or args.long_list:

@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -24,7 +24,13 @@
 ##############################################################################
 import spack.cmd.configure as cfg
 
-from spack import *
+from spack.build_systems.autotools import AutotoolsPackage
+from spack.build_systems.cmake import CMakePackage
+from spack.build_systems.qmake import QMakePackage
+from spack.build_systems.scons import SConsPackage
+from spack.build_systems.waf import WafPackage
+from spack.build_systems.python import PythonPackage
+from spack.build_systems.perl import PerlPackage
 
 description = 'stops at build stage when installing a package, if possible'
 section = "build"

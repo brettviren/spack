@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -23,7 +23,9 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
 import llnl.util.tty as tty
-from spack.compiler import *
+
+import spack
+from spack.compiler import Compiler, get_compiler_version
 from spack.version import ver
 
 
@@ -95,7 +97,10 @@ class Gcc(Compiler):
         if spack.compilers.clang.Clang.default_version(cc) != 'unknown':
             return 'unknown'
 
-        return super(Gcc, cls).default_version(cc)
+        version = super(Gcc, cls).default_version(cc)
+        if version in ['7']:
+            version = get_compiler_version(cc, '-dumpfullversion')
+        return version
 
     @classmethod
     def fc_version(cls, fc):

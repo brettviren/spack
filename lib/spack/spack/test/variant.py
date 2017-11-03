@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -26,7 +26,12 @@
 import pytest
 import numbers
 
-from spack.variant import *
+from spack.variant import Variant, SingleValuedVariant, VariantMap
+from spack.variant import MultiValuedVariant, BoolValuedVariant
+from spack.variant import UnsatisfiableVariantSpecError
+from spack.variant import InconsistentValidationError
+from spack.variant import MultipleValuesInExclusiveVariantError
+from spack.variant import InvalidVariantValueError, DuplicateVariantError
 
 
 class TestMultiValuedVariant(object):

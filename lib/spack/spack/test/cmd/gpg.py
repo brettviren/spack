@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -98,6 +98,7 @@ def test_gpg(gpg, tmpdir, testing_gpg_directory):
 
     # List the keys.
     # TODO: Test the output here.
+    gpg('list')
     gpg('list', '--trusted')
     gpg('list', '--signing')
 

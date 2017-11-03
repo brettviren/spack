@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -49,8 +49,8 @@ from six import iteritems
 from yaml.error import MarkedYAMLError, YAMLError
 
 import llnl.util.tty as tty
-from llnl.util.filesystem import *
-from llnl.util.lock import *
+from llnl.util.filesystem import join_path, mkdirp
+from llnl.util.lock import Lock, WriteTransaction, ReadTransaction
 
 import spack.store
 import spack.repository
@@ -491,7 +491,7 @@ class Database(object):
 
                 self._check_ref_counts()
 
-            except:
+            except BaseException:
                 # If anything explodes, restore old data, skip write.
                 self._data = old_data
                 raise
@@ -544,7 +544,7 @@ class Database(object):
             with open(temp_file, 'w') as f:
                 self._write_to_file(f)
             os.rename(temp_file, self._index_path)
-        except:
+        except BaseException:
             # Clean up temp file if something goes wrong.
             if os.path.exists(temp_file):
                 os.remove(temp_file)
@@ -747,8 +747,20 @@ class Database(object):
         the given spec
         """
         for spec in self.query():
+            if spec.package.extends(extendee_spec):
+                yield spec.package
+
+    @_autospec
+    def activated_extensions_for(self, extendee_spec, extensions_layout=None):
+        """
+        Return the specs of all packages that extend
+        the given spec
+        """
+        if extensions_layout is None:
+            extensions_layout = spack.store.extensions
+        for spec in self.query():
             try:
-                spack.store.layout.check_activated(extendee_spec, spec)
+                extensions_layout.check_activated(extendee_spec, spec)
                 yield spec.package
             except spack.directory_layout.NoSuchExtensionError:
                 continue

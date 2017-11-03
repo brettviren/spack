@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -29,5 +29,6 @@ def pre_uninstall(spec):
     assert spec.concrete
 
     if pkg.is_extension:
-        if pkg.activated:
+        if pkg.is_activated():
+            # deactivate globally
             pkg.do_deactivate(force=True)

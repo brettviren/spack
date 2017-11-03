@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -29,7 +29,11 @@ from collections import defaultdict
 import spack
 
 from llnl.util import tty
-from spack.url import *
+from spack.url import parse_version_offset, parse_name_offset
+from spack.url import parse_name, parse_version, color_url
+from spack.url import substitute_version, substitution_offsets
+from spack.url import UndetectableNameError, UndetectableVersionError
+from spack.url import UrlParseError
 from spack.util.web import find_versions_of_archive
 from spack.util.naming import simplify_name
 

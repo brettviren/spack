@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -24,6 +24,8 @@
 ##############################################################################
 import argparse
 
+import llnl.util.tty as tty
+
 import spack
 import spack.cmd
 
@@ -38,7 +40,7 @@ def setup_parser(subparser):
         help="do not check packages against checksum")
     subparser.add_argument(
         '-m', '--missing', action='store_true',
-        help="also fetch all missing dependencies")
+        help="fetch only missing (not yet installed) dependencies")
     subparser.add_argument(
         '-D', '--dependencies', action='store_true',
         help="also fetch all dependencies")
@@ -57,10 +59,17 @@ def fetch(parser, args):
     specs = spack.cmd.parse_specs(args.packages, concretize=True)
     for spec in specs:
         if args.missing or args.dependencies:
-            for s in spec.traverse(deptype_query=spack.alldeps):
+            for s in spec.traverse():
                 package = spack.repo.get(s)
+
+                # Skip already-installed packages with --missing
                 if args.missing and package.installed:
                     continue
+
+                # Do not attempt to fetch externals (they're local)
+                if package.spec.external:
+                    continue
+
                 package.do_fetch()
 
         package = spack.repo.get(spec)

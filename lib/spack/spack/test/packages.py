@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -28,7 +28,7 @@ import pytest
 from llnl.util.filesystem import join_path
 from spack.repository import Repo
 from spack.util.naming import mod_to_class
-from spack.spec import *
+from spack.spec import Spec
 
 
 @pytest.mark.usefixtures('config', 'builtin_mock')

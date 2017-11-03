@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -30,7 +30,7 @@ import llnl.util.tty as tty
 
 import spack.spec
 import spack.config
-from spack.repository import *
+from spack.repository import Repo, create_repo, canonicalize_path, RepoError
 
 description = "manage package source repositories"
 section = "config"

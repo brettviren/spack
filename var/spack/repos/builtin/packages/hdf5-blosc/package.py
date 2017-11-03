@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -184,7 +184,7 @@ Done.
             try:
                 check = Executable("./check")
                 output = check(output=str)
-            except:
+            except ProcessError:
                 output = ""
             success = output == expected
             if not success:

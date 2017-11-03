@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -25,8 +25,8 @@
 import os
 import shutil
 
-from llnl.util.filesystem import *
-from llnl.util.lock import *
+from llnl.util.filesystem import mkdirp, join_path
+from llnl.util.lock import Lock, ReadTransaction, WriteTransaction
 
 from spack.error import SpackError
 
@@ -35,7 +35,7 @@ class FileCache(object):
     """This class manages cached data in the filesystem.
 
     - Cache files are fetched and stored by unique keys.  Keys can be relative
-      paths, so that thre can be some hierarchy in the cache.
+      paths, so that there can be some hierarchy in the cache.
 
     - The FileCache handles locking cache files for reading and writing, so
       client code need not manage locks for cache entries.

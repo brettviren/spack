@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -28,7 +28,12 @@ import llnl.util.tty as tty
 import spack.cmd
 import spack.cmd.install as inst
 
-from spack import *
+from spack.build_systems.autotools import AutotoolsPackage
+from spack.build_systems.cmake import CMakePackage
+from spack.build_systems.qmake import QMakePackage
+from spack.build_systems.waf import WafPackage
+from spack.build_systems.perl import PerlPackage
+from spack.build_systems.intel import IntelPackage
 
 description = 'stage and configure a package but do not install'
 section = "build"

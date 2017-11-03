@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -25,8 +25,7 @@
 """Test for multi_method dispatch."""
 import spack
 import pytest
-from spack.multimethod import *
-from spack.version import *
+from spack.multimethod import NoSuchMethodError
 
 
 def test_no_version_match(builtin_mock):

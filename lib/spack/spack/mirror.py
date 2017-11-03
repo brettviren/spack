@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -33,14 +33,14 @@ to download packages directly from a mirror (e.g., on an intranet).
 import sys
 import os
 import llnl.util.tty as tty
-from llnl.util.filesystem import *
+from llnl.util.filesystem import mkdirp, join_path
 
 import spack
 import spack.error
 import spack.url as url
 import spack.fetch_strategy as fs
 from spack.spec import Spec
-from spack.version import *
+from spack.version import VersionList
 from spack.util.compression import allowed_archive
 
 

@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -24,7 +24,7 @@
 ##############################################################################
 """Test YAML serialization for specs.
 
-YAML format preserves DAG informatoin in the spec.
+YAML format preserves DAG information in the spec.
 
 """
 from collections import Iterable, Mapping

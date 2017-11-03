@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -41,4 +41,6 @@ class Bdftopcf(AutotoolsPackage):
     depends_on('libxfont')
 
     depends_on('pkg-config@0.9.0:', type='build')
+    depends_on('xproto', type='build')
+    depends_on('fontsproto', type='build')
     depends_on('util-macros', type='build')

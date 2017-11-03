@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -177,6 +177,6 @@ class Charm(Package):
                         shutil.copy2(filepath, tmppath)
                         os.remove(filepath)
                         os.rename(tmppath, filepath)
-                    except:
+                    except (IOError, OSError):
                         pass
         shutil.rmtree(join_path(prefix, "tmp"))

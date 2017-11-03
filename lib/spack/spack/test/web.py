@@ -1,5 +1,5 @@
 ##############################################################################
-# Copyright (c) 2013-2016, Lawrence Livermore National Security, LLC.
+# Copyright (c) 2013-2017, Lawrence Livermore National Security, LLC.
 # Produced at the Lawrence Livermore National Laboratory.
 #
 # This file is part of Spack.
@@ -27,7 +27,7 @@ import os
 
 import spack
 from spack.util.web import spider, find_versions_of_archive
-from spack.version import *
+from spack.version import ver
 
 
 web_data_path = os.path.join(spack.test_path, 'data', 'web')
