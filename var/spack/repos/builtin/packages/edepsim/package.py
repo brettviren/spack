@@ -5,6 +5,7 @@ class Edepsim(CMakePackage):
     homepage = "https://github.com/ClarkMcGrew/edep-sim/"
     url = "https://github.com/ClarkMcGrew/edep-sim/archive/2.0.1.tar.gz"
 
+    version('master', git="https://github.com/ClarkMcGrew/edep-sim.git")
     version('2.0.1', '88afc6f7570f19efd2094fce00585c00')
 
     depends_on("geant4~qt")
