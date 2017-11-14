@@ -34,6 +34,10 @@ class Jsoncpp(CMakePackage):
     homepage = "https://github.com/open-source-parsers/jsoncpp"
     url      = "https://github.com/open-source-parsers/jsoncpp/archive/1.7.3.tar.gz"
 
+    version('1.7.7', '9b51c65c563463220a8cb5fa33d525f8')
+    version('1.7.6', 'd0fcb6a5b11e2a3b1edfbfb03c3bc83e')
+    version('1.7.5', '2d5877044dca4edaa8d6d5d3b5df4ff5')
+    version('1.7.4', '51a6d5f8832d668daf97790ea59c4926')
     version('1.7.3', 'aff6bfb5b81d9a28785429faa45839c5')
 
     variant('build_type', default='RelWithDebInfo',
