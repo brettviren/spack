@@ -105,6 +105,12 @@ class Root(CMakePackage):
             '-Dcocoa=OFF',
             '-Dbonjour=OFF',
             '-Dx11=ON',
+            '-Dopengl=ON',
+            '-Dbuiltin_fftw3=OFF',
+            '-Dfftw3=ON',       # it's on by default
+            '-Dminuit2=ON',
+            ## see above
+            #'-Dtbb=ON',            
         ]
 
         if sys.platform == 'darwin':
