@@ -34,6 +34,7 @@ class Notmuch(AutotoolsPackage):
     homepage = "https://notmuchmail.org/"
     url      = "https://notmuchmail.org/releases/notmuch-0.23.7.tar.gz"
 
+    version('0.25.3', '010afdd68d60a53be64f086614b55fa4')
     version('0.25.2', '0e7ca4fc1bfae5eb3eb6b43c9a2ebfda')
     version('0.23.7', '1ad339b6d0c03548140434c7bcdf0624')
 
